@@ -1,7 +1,7 @@
 import React from "react";
 
-const Cakes = () => {
+const Products = () => {
   return <div></div>;
 };
 
-export default Cakes;
+export default Products;
