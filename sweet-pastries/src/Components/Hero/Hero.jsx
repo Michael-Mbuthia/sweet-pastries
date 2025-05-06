@@ -1,6 +1,7 @@
 import React from "react";
 import "./Hero.css";
-import HeroImage from "../Assets/images/image53.jpg";
+import HeroImage from "../Assets/Frontend_Assets/images/image53.jpg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -13,7 +14,10 @@ const Hero = () => {
           <p>for everyone </p>
         </div>
         <div className="hero-latest-btn">
-          <div>Latest cakes</div>
+          <div>
+            {" "}
+            <Link to="/products">Order now</Link>
+          </div>
         </div>
       </div>
       <div className="hero-right">
