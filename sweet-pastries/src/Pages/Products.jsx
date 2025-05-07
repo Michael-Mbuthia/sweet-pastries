@@ -2,8 +2,15 @@ import React from "react";
 import all_product from "../Components/Assets/Frontend_Assets/all_product";
 import ShopContext from "../Context/ShopContext";
 import "./CSS/Products.css";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
+  const navigate = useNavigate();
+
+  const handleProductClick = (id) => {
+    navigate(`/product-display/${id}`);
+  };
+
   return (
     <div className="products">
       <h1>Products</h1>
@@ -17,6 +24,7 @@ const Products = () => {
               name={item.name}
               image={item.image}
               price={item.price}
+              onClick={() => handleProductClick(item.id)}
             />
           );
         })}
