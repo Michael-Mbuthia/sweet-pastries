@@ -15,8 +15,10 @@ const ProductDisplay = () => {
     return <p>Product not found</p>;
   }
 
+  // Render the product details
   return (
     <div className="product-display">
+      {/* Display the product image */}
       <div className="product-image-container">
         <img
           src={product.image || placeholderImage}
@@ -25,6 +27,7 @@ const ProductDisplay = () => {
         />
       </div>
 
+      {/* Display the product details */}
       <div className="product-info">
         <h2 className="product-name">{product.name}</h2>
         <p className="product-description">{product.description}</p>
