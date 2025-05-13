@@ -2,6 +2,11 @@ import React from "react";
 import "./ShopContext.css";
 
 const ShopContext = (props) => {
+  const handleAddToCart = (id) => {
+    // Function to handle adding item to cart
+
+    console.log(`Item with id ${id} added to cart`);
+  };
   return (
     <div
       className="shop-context"
@@ -18,6 +23,7 @@ const ShopContext = (props) => {
           className="shop-btn"
           onClick={(e) => {
             e.stopPropagation();
+            handleAddToCart(props.id); // Call the function to add item to cart
             ({
               id: props.id,
               name: props.name,

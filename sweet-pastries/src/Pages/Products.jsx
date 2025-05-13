@@ -4,7 +4,7 @@ import ShopContext from "../Context/ShopContext";
 import "./CSS/Products.css";
 import { useNavigate } from "react-router-dom";
 
-const Products = () => {
+const Products = ({ handleAddToCart }) => {
   const navigate = useNavigate();
 
   const handleProductClick = (id) => {
@@ -25,6 +25,7 @@ const Products = () => {
               image={item.image}
               price={item.price}
               onClick={() => handleProductClick(item.id)}
+              handleAddToCart={handleAddToCart} // Pass the function here
             />
           );
         })}

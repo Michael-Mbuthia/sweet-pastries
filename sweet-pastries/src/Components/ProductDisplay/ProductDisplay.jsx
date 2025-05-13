@@ -15,6 +15,11 @@ const ProductDisplay = () => {
     return <p>Product not found</p>;
   }
 
+  // Function to handle Add to Cart button click
+  const handleAddToCart = () => {
+    console.log(`Added to cart: ${product.name}, Price: Ksh${product.price}`);
+  };
+
   // Render the product details
   return (
     <div className="product-display">
@@ -32,7 +37,12 @@ const ProductDisplay = () => {
         <h2 className="product-name">{product.name}</h2>
         <p className="product-description">{product.description}</p>
         <p className="product-price">Ksh{product.price}</p>
-        <button className="add-to-cart-button">Add to Cart</button>
+        <button
+          className="add-to-cart-button"
+          onClick={handleAddToCart} // Add onClick handler
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );

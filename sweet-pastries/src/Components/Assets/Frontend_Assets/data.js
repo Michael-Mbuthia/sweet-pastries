@@ -6,21 +6,21 @@ import p4_img from "./images/image48.jpg";
 let dataProduct = [
   {
     id: 1,
-    name: "Coconut cake",
+    name: "Bithday cakes",
     image: p1_img,
     new_price: 2200.0,
     old_price: 0,
   },
   {
     id: 2,
-    name: "Oreo Cake",
+    name: "Graduation cakes",
     image: p2_img,
     new_price: 2200.0,
     old_price: 0,
   },
   {
     id: 3,
-    name: "Strawberry Cake",
+    name: "Wedding cakes",
     image: p3_img,
     new_price: 60.0,
     old_price: 0,

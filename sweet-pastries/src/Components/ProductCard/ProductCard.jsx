@@ -4,6 +4,10 @@ import "./ProductCard.css";
 
 const ProductCard = (props) => {
   const { addToCart } = useShop();
+  const handleAddToCart = (id) => {
+    // Function to handle adding item to cart
+    console.log(`Item with id ${id} added to cart`);
+  };
 
   return (
     <div
@@ -21,6 +25,7 @@ const ProductCard = (props) => {
           className="shop-btn"
           onClick={(e) => {
             e.stopPropagation();
+            handleAddToCart(props.id); // Call the function to add item to cart
             addToCart({
               id: props.id,
               name: props.name,
