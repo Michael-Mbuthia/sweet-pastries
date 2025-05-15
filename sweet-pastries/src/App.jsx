@@ -8,19 +8,22 @@ import Cart from "./Pages/Cart";
 import Login from "./Pages/LoginSignup";
 import Footer from "./Components/Footer/Footer";
 import ProductDisplay from "./Components/ProductDisplay/ProductDisplay";
+import CartProvider from "./Components/CartContext/CartContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Shop />} />
-        <Route path="/products" element={<Product />} />
-        <Route path="/product-display/:id" element={<ProductDisplay />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-      <Footer />
+      <CartProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Shop />} />
+          <Route path="/products" element={<Product />} />
+          <Route path="/product-display/:id" element={<ProductDisplay />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+        <Footer />
+      </CartProvider>
     </BrowserRouter>
   );
 }
