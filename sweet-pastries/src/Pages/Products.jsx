@@ -1,10 +1,10 @@
-import React from "react";
-import all_product from "../Components/Assets/Frontend_Assets/all_product";
-import ShopContext from "../Context/ShopContext";
+import React, { useContext } from "react";
+import { ShopContext } from "../Context/ShopContext";
 import "./CSS/Products.css";
 import { useNavigate } from "react-router-dom";
 
-const Products = ({ handleAddToCart }) => {
+const Products = () => {
+  const { all_product } = useContext(ShopContext);
   const navigate = useNavigate();
 
   const handleProductClick = (id) => {
@@ -16,19 +16,20 @@ const Products = ({ handleAddToCart }) => {
       <h1>Products</h1>
       <hr />
       <div className="products-card">
-        {all_product.map((item, i) => {
-          return (
-            <ShopContext
-              key={i}
-              id={item.id}
-              name={item.name}
-              image={item.image}
-              price={item.price}
-              onClick={() => handleProductClick(item.id)}
-              handleAddToCart={handleAddToCart} // Pass the function here
-            />
-          );
-        })}
+        {all_product.map((item, i) => (
+          <div
+            key={i}
+            className="product-card"
+            onClick={() => handleProductClick(item.id)}
+          >
+            <img src={item.image} alt="" />
+            <h2>{item.name}</h2>
+            <div className="product-prices">
+              <div className="price">Ksh{item.price}</div>
+              <div className="description">{item.old_price}</div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

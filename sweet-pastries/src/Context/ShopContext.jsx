@@ -1,42 +1,37 @@
-import React from "react";
-import "./ShopContext.css";
+import React, { createContext } from "react";
+import { useState } from "react";
+import all_product from "../Components/Assets/Frontend_Assets/all_product";
 
-const ShopContext = (props) => {
-  const handleAddToCart = (id) => {
-    // Function to handle adding item to cart
+const ShopContext = createContext(null);
 
-    console.log(`Item with id ${id} added to cart`);
+const getDefaultCart = () => {
+  let cart = {};
+  for (let i = 0; i < all_product.length; i++) {
+    cart[i] = 0;
+  }
+  return cart;
+};
+
+const ShopContextProvider = (props) => {
+  const [cartItems, setCartItems] = useState(getDefaultCart());
+
+  const addToCart = (itemId) => {
+    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+    console.log(cartItems);
   };
+
+  const removeFromCart = (itemId) => {
+    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+  };
+
+  const contextValue = { all_product, cartItems, addToCart, removeFromCart };
+
   return (
-    <div
-      className="shop-context"
-      onClick={props.onClick}
-      style={{ cursor: "pointer" }}
-    >
-      <img src={props.image} alt={props.name} />
-      <p>{props.name}</p>
-      <div className="item-prices">
-        <div className="price">Ksh{props.price}</div>
-      </div>
-      <div className="item-btn">
-        <button
-          className="shop-btn"
-          onClick={(e) => {
-            e.stopPropagation();
-            handleAddToCart(props.id); // Call the function to add item to cart
-            ({
-              id: props.id,
-              name: props.name,
-              price: props.price,
-              image: props.image,
-            }); // Add item to cart
-          }}
-        >
-          Add to Cart
-        </button>
-      </div>
-    </div>
+    <ShopContext.Provider value={contextValue}>
+      {props.children}
+    </ShopContext.Provider>
   );
 };
 
-export default ShopContext;
+export default ShopContextProvider;
+export { ShopContext };

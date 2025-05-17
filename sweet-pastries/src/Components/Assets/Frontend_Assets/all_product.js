@@ -39,7 +39,6 @@ let all_product = [
   {
     id: 1,
     name: "",
-
     image: p1_img,
     price: 50.0,
   },
@@ -66,7 +65,7 @@ let all_product = [
   },
   {
     id: 5,
-    name: "",
+    name: " 2kg Strawberry Cake",
 
     image: p5_img,
     price: 85.0,
@@ -87,7 +86,7 @@ let all_product = [
   },
   {
     id: 8,
-    name: "",
+    name: "1kg Coconut cake",
 
     image: p8_img,
     price: 85.0,

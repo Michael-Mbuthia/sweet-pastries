@@ -1,22 +1,24 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CartItems.css";
-import CartContext from "../CartContext/CartContext";
+import { ShopContext } from "../../Context/ShopContext";
 
 const CartItems = () => {
   const navigate = useNavigate();
-  const { all_product, cartItems, removeFromCart } = useContext(CartContext);
+  const { all_product, cartItems, removeFromCart } = useContext(ShopContext);
 
   const handleBackToShop = () => {
     navigate("/");
   };
 
   // Get all products that are in the cart
-  const productsInCart = all_product.filter((product) => cartItems[product.id] > 0);
+  const productsInCart = all_product.filter(
+    (product) => cartItems[product.id] > 0
+  );
 
   return (
     <div className="cart-items">
-      {productsInCart.length > 0 ? (
+      {all_product.length > 0 ? (
         <>
           <div className="cartitems-format-main">
             <p>Products</p>
@@ -36,9 +38,7 @@ const CartItems = () => {
                 {cartItems[product.id]}
               </button>
               <p>Ksh{(cartItems[product.id] * product.price).toFixed(2)}</p>
-              <button onClick={() => removeFromCart(product.id)}>
-                Remove
-              </button>
+              <button onClick={() => removeFromCart(product.id)}>Remove</button>
             </div>
           ))}
         </>
