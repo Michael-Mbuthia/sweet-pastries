@@ -16,9 +16,9 @@ const Products = () => {
       <h1>Products</h1>
       <hr />
       <div className="products-card">
-        {all_product.map((item, i) => (
+        {all_product.map((item) => (
           <div
-            key={i}
+            key={item.id}
             className="product-card"
             onClick={() => handleProductClick(item.id)}
           >
