@@ -32,7 +32,7 @@ const CartItems = () => {
           {productsInCart.map((product) => (
             <div className="cartitems-format" key={product.id}>
               <img src={product.image} alt={product.name} />
-              <p>{product.title || product.name}</p>
+              <p>{product.name}</p>
               <p>Ksh{product.price}</p>
               <button className="cartitems-quantity">
                 {cartItems[product.id]}

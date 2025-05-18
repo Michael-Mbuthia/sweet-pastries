@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Products = () => {
   const { all_product } = useContext(ShopContext);
+  const { addToCart } = useContext(ShopContext);
   const navigate = useNavigate();
 
   const handleProductClick = (id) => {
@@ -27,6 +28,17 @@ const Products = () => {
             <div className="product-prices">
               <div className="price">Ksh{item.price}</div>
               <div className="description">{item.old_price}</div>
+              <div className="add-to-cart">
+                <button
+                  className="add-to-cart-button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    addToCart(item.id);
+                  }}
+                >
+                  Add to Cart
+                </button>
+              </div>
             </div>
           </div>
         ))}
